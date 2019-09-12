@@ -1,7 +1,7 @@
 # Armed and Operational
 ### Making your machine a demo/dev/play DSS powerhouse
 
-There are many advantages to making your machine into a fully-operational standalone DSS demo machine that can show the entire lifecycle of working in our ecosystem. 
+There are many advantages to making your machine into a fully-operational standalone DSS demo machine that can show the entire lifecycle of working in our ecosystem.
 
  * Demoing when the internet sucks
  * Always having the most up-to-date version of DSS
@@ -93,10 +93,10 @@ Dataiku runs on Linux (and Mac, which is close enough.) The way we interact with
 https://docs.google.com/presentation/d/1r4z3dNbZZgNMhEdh1Ao6ua5NgoaJnFdRZFahmEeRVsw/edit?usp=drive_web&ouid=114494509991412750512
 https://dataiku.slack.com/archives/CDXD799NG/p1561871234015600
 
-Dataiku uses git heavily underneat the covers. You should have git installed and a github account. If you do not have a github account sign up now. 
+Dataiku uses git heavily underneat the covers. You should have git installed and a github account. If you do not have a github account sign up now.
 We'll wait...
 
-Okay, now navigate to 
+Okay, now navigate to
 github.com/JedIV/dataiku-se-materials
 git clone [https://github.com/JedIV/dataiku-se-materials.git]()
 
@@ -114,7 +114,7 @@ git clone [git@github.com:JedIV/dataiku-se-materials.git]()
 
 ## Install Design Node
 
-Create a directory underneath you users main directory. Your license should be in your email from the sender: dkulicense@test1.dataiku.com. Copy your license into a file called license.json and save it inside this directory.
+Create a directory underneath your user main directory. Your license should be in your email from the sender: dkulicense@test1.dataiku.com. Copy your license into a file called license.json and save it inside this directory.
 
 ```bash
 ## make sure you're not root
@@ -141,7 +141,7 @@ Now go to [http://localhost:20000](https://downloads.dataiku.com/public/dss/5.1.
 
 ```bash
 mkdir dss-automation
-dataiku-dss-5.1.5-osx/installer.sh -d dss-automation -p 30000 -l license.json -t automation 
+dataiku-dss-5.1.5-osx/installer.sh -d dss-automation -p 30000 -l license.json -t automation
 ```
 
 Navigate into your dss automation directory and start it up:
@@ -155,7 +155,7 @@ dss-automation/bin/dss start
 
 ```bash
 mkdir dss-api
-dataiku-dss-5.1.5-osx/installer.sh -d dss-api -p 40000 -l license.json -t api 
+dataiku-dss-5.1.5-osx/installer.sh -d dss-api -p 40000 -l license.json -t api
 ```
 
 Navigate into your dss api directory and start it up:
@@ -168,14 +168,14 @@ dss-api/bin/dss start
 
 We are going to use the API deployer on the automation node as our primary deployer.
 
-Connect your Design and Automation instances
+### Connect your Design and Automation instances
 Next, you are going to configure your Design node so that it can publish their API services to the API Deployer set up on the Automation node
 
-####Generate an admin API key on the API Deployer
+#### Generate an admin API key on the API Deployer
 
 On the Automation node's API Deployer, go to Administration > Security > Global API keys and generate a new API key. This key must have global admin privileges. Take note of the secret.
 
-####Setup the key on the Design node
+#### Setup the key on the Design node
 
 On the Design node:
 
@@ -201,7 +201,8 @@ If you correctly cloned the git repo, you should have a folder inside of it with
 
 ## Download the Push to Automation Macro
 
-If you've correctly set up git, you can pull the macro directly from Dataiku's dku-contrib repo. 
+If you've correctly set up git, you can pull the macro directly from Dataiku's dataiku-contrib repo.
+The macro is called dataiku-project-bundle-migration.
 
 ## Push your project to automation
 
@@ -209,7 +210,7 @@ You'll need to create an admin key on the automation node, then put it into the 
 
 ## From the design node, manually push a service that includes a model to the API deployer
 
-Construct an Api service from your model. You can construct multiple endpoints on this service if you choose. When building your model, I recommend using as few features as possible. This makes for easier an easier to modify feature set. if you want to build another endpoint, I suggest doing a python function endpoint that performs some sort of "hello world" action.
+Construct an Api service from your model. You can construct multiple endpoints on this service if you choose. When building your model, I recommend using as few features as possible. This makes easier to modify feature set. if you want to build another endpoint, I suggest doing a python function endpoint that performs some sort of "hello world" action.
 
 ## Create a scenario that checks for accuracy of a model and pushes an updated service to the API deployer
 
@@ -217,7 +218,7 @@ Exercise left to the reader.
 
 ## Update the project on automation and run its scenario to deploy  a new version of your service to the API deployer
 
-Again, use the push to Automation macro to send a new version of your project to the automation node. This new version should have the API service and the scenario that updates that service. 
+Again, use the push to Automation macro to send a new version of your project to the automation node. This new version should have the API service and the scenario that updates that service.
 
 ## Use Insomnia, postman, the command line, or the apache bench macro to test our api endpoint from outside DSS
 
@@ -256,4 +257,3 @@ You can also modify the download url location. This script is run with the follo
 ```
 ./upgrade_dss.sh -v 5.1.5
 ```
-
