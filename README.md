@@ -129,6 +129,12 @@ mkdir dss-design
 dataiku-dss-5.1.5-osx/installer.sh -d dss-design -p 20000 -l license.json
 ```
 
+To upgrade, instead of running the last line, run:
+
+```
+dataiku-dss-6.0.1-osx/installer.sh -d dss_beta -u
+```
+
 Navigate into your dss design directory and start it up:
 
 ```bash
