@@ -98,6 +98,7 @@ We'll wait...
 
 Okay, now navigate to
 github.com/JedIV/dataiku-se-materials
+
 git clone [https://github.com/JedIV/dataiku-se-materials.git]()
 
 -- ADVANCED --
