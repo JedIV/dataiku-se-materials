@@ -21,7 +21,7 @@ do
 			echo "The value of -v is $OPTARG"
 			VERSION=$OPTARG
 			echo "Version: "
-			echo VERSION
+			echo $VERSION
 			;;
 	esac
 done
